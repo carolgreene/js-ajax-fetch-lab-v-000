@@ -26,10 +26,12 @@ function forkRepo() {
 
 function showResults(json) {
   //use this function to display the results from forking via the API
-  let results = document.getElementById('results');
-  let html = `<a href="${json.html_url}">${json.full_name}</a>`
-  results.innerHTML += html
+  document.getElementById('results').innerHTML = `<a href=${json.html_url}>${
+    json.html_url
+  }</a>`;
 }
+  
+
 
 function createIssue() {
   //use this function to create an issue based on the values input in index.html
