@@ -1,13 +1,19 @@
+const baseURL = 'https://api.github.com';
+const user = '<YOUR_USERNAME>';
+
 function getToken() {
   //change to your token to run in browser, but set
   //back to '' before committing so all tests pass
   return '';
 }
 
+
+
 function forkRepo() {
   const repo = 'learn-co-curriculum/js-ajax-fetch-lab';
+  const url = `${baseURL}/repos/${repo}/forks`;
   //use fetch to fork it!
-  fetch(`https://api.github.com/repos/${repo}/forks`, {
+  fetch(url, {
     method: 'POST',
     headers: {
       Authorization: `token ${getToken()}`
