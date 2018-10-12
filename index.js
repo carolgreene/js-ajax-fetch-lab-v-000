@@ -30,36 +30,41 @@ function showResults(json) {
     json.html_url
   }</a>`;
 }
-  
+
 
 
 function createIssue() {
   //use this function to create an issue based on the values input in index.html
-  const title = document.getElementById('title').value
-  const body = document.getElementById('body').value
+  const repo = `${user}/js-ajax-fetch-lab`;
+  const url = `${baseURL}/repos/${repo}/issues`;
+  const postData = {
+    title: document.getElementById('title').value,
+    body: document.getElementById('body').value
+  };
 
-  fetch(`/js-ajax-fetch-lab/issues/`, {
+  fetch(url, {
     method: 'POST',
-    title: JSON.stringify(title),
-    body: JSON.stringify(body),
+    body: JSON.stringify(postData),
     headers: {
-    Authorization: `token ${getToken()}`
+      Authorization: `token ${getToken()}`
     }
   })
-  .then(res => res.json())
-  .then(json => console.log(json));
-
-}
-
-
+    .then(res => res.json())
+    .then(json => getIssues());
+} 
+  
 
 function getIssues() {
   //once an issue is submitted, fetch all open issues to see the issues you are creating
-  fetch(`/js-ajax-fetch-lab/issues/`, {
+  const repo = `${user}/js-ajax-fetch-lab`;
+ const url = `${baseURL}/repos/${repo}/issues`;
+ fetch(url, {
    headers: {
-   Authorization: `token ${getToken()}`
+     Authorization: `token ${getToken()}`
    }
  })
- .then(res => res.json())
- .then(json => console.log(json));
+   .then(res => res.json())
+   .then(json => console.log(json));
 }
+  
+  
