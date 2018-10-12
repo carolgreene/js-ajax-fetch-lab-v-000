@@ -51,8 +51,8 @@ function createIssue() {
   })
     .then(res => res.json())
     .then(json => getIssues());
-} 
-  
+}
+
 
 function getIssues() {
   //once an issue is submitted, fetch all open issues to see the issues you are creating
@@ -66,5 +66,3 @@ function getIssues() {
    .then(res => res.json())
    .then(json => console.log(json));
 }
-  
-  
