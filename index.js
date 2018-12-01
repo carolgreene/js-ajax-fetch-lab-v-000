@@ -1,7 +1,6 @@
 const baseURL = 'https://api.github.com';
 const user = 'carolgreene';
 
-
 function getToken() {
   //change to your token to run in browser, but set
   //back to '' before committing so all tests pass
@@ -23,6 +22,7 @@ fetch(url, {                                   //fetch url. could have just put 
 .then(res => res.json())                         //take results and show as json
 .then(json => showResults(json))                 //take json & send it to showResults(json) function below
 }
+
 
 
 function showResults(json) {
@@ -50,7 +50,6 @@ function createIssue() {
   .then(res => res.json())                              //take results & show as json
   .then(json => getIssues())                            //take json & pass to getIssues() function below
 }
-
 
 
 function getIssues() {
